@@ -9,3 +9,4 @@ apt autoclean -y
 apt clean -y
 flatpak update -y
 snap refresh
+apt-file update
