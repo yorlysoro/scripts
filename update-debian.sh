@@ -1,12 +1,12 @@
 #!/bin/bash
-apt update
-apt upgrade -y
-apt dist-upgrade -y
-apt full-upgrade -y
-apt install -f -y
-apt autoremove --purge -y
-apt autoclean -y
-apt clean -y
-flatpak update -y
-snap refresh
-apt-file update
+sudo apt update
+sudo apt upgrade -y
+sudo apt dist-upgrade -y
+sudo apt full-upgrade -y
+sudo apt install -f -y
+sudo apt autoremove --purge -y
+sudo apt autoclean -y
+sudo apt clean -y
+#flatpak update -y
+sudo snap refresh
+sudo apt-file update
