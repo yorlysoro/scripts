@@ -8,6 +8,6 @@ sudo apt install -f -y
 sudo apt autoremove --purge -y
 sudo apt autoclean -y
 sudo apt clean -y
-sudo flatpak update -y
-sudo snap refresh
+#sudo flatpak update -y
+#sudo snap refresh
 sudo apt-file update
