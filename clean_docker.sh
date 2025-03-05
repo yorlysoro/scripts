@@ -1,8 +1,8 @@
 #!/bin/bash
 docker buildx prune
-docker builder prune -a
+docker builder prune
 docker container prune
-docker image prune -a
+docker image prune
 docker network prune
-docker system prune -a
-docker volume prune -a
+docker system prune
+docker volume prune
