@@ -22,3 +22,11 @@ sudo grub-install --root-directory=/mnt --no-floppy /dev/loop0
 
 # Crear iso
 sudo mkisofs -o debian-custom.iso -b debian-custom.img -V "Debian_Respin" .
+# nueva forma 
+xorriso -as mkisofs \
+  -o debian-custom.iso \
+  -b debian-custom.img \
+  -V "Debian_Respin" \
+  -allow-limited-size \  # Allows files >4GB
+  -iso-level 3 \         # Enables ISO9660:1999 (supports large files)
+  .
