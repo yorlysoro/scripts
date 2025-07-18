@@ -1,0 +1,24 @@
+# Deshabilitar paquetes recomendados
+APT::Install-Recommends "false";
+# Deshabilitar paquetes sugeridos
+APT::Install-Suggests "false";
+
+# Preparar el sistema
+sudo apt clean
+sudo rm -rf /tmp/* /var/tmp/*
+
+# Instalar en el sistema creador 
+apt install dd mkisofs rsync
+
+# Clonar el sistema a la iso
+sudo dd if=/dev/zero of=debian-custom.img bs=1G count=8  # Ajusta "count" según tu sistema
+sudo mkfs.ext4 debian-custom.img
+sudo mount -o loop debian-custom.img /mnt
+sudo rsync -aAX --exclude={"/dev/*","/proc/*","/sys/*","/tmp/*","/run/*","/mnt/*","/media/*","/lost+found"} / /mnt/
+
+# Hacer booteable el sistema 
+sudo mkdir -p /mnt/boot/grub
+sudo grub-install --root-directory=/mnt --no-floppy /dev/loop0
+
+# Crear iso
+sudo mkisofs -o debian-custom.iso -b debian-custom.img -V "Debian_Respin" .
